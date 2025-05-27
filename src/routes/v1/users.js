@@ -1,23 +1,15 @@
 import express from 'express';
 
-import channelRouter from './channel.js';
-import memberRouter from './members.js';
-import messageRouter from './messages.js';
-import paymentRouter from './payment.js';
-import userRouter from './users.js';
-import workspaceRouter from './workspaces.js';
+import { signIn, signUp } from '../../controllers/userController.js';
+import {
+  userSignInSchema,
+  userSignUpSchema
+} from '../../validators/userSchema.js';
+import { validate } from '../../validators/zodValidator.js';
+
 const router = express.Router();
 
-router.use('/users', userRouter);
-
-router.use('/workspaces', workspaceRouter);
-
-router.use('/channels', channelRouter);
-
-router.use('/members', memberRouter);
-
-router.use('/messages', messageRouter);
-
-router.use('/payments', paymentRouter);
+router.post('/signup', validate(userSignUpSchema), signUp);
+router.post('/signin', validate(userSignInSchema), signIn);
 
 export default router;

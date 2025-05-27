@@ -1,17 +1,20 @@
 {
+  "type": "module",
   "name": "slack",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js"
+    "dev": "node src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.817.0",
+    "@aws-sdk/s3-request-presigner": "^3.817.0",
+    "@bull-board/api": "^6.9.6",
     "@bull-board/express": "^6.9.6",
-    "aws-sdk": "^2.1692.0",
     "bcrypt": "^6.0.0",
     "bull": "^4.16.5",
     "cors": "^2.8.5",
